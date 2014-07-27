@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="tasksApp">
+<head>
+  <script src="angular.min.js"></script>
+  <script src="controllers.js"></script>
+  <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="TasksController" ng-init="getTasks()">
+<table>
+  <th>Task Name</th>
+  <th>Task Description</th>
+  <tr ng-class="trClass({{$index}})" ng-repeat="task in tasks">
+    <td>{{task.Name}}</td>
+    <td>{{task.Description}}</td>
+  </tr>
+</table>
+</body>
+</html>
