@@ -19,5 +19,13 @@
         return "odd"
       }
     };
+
+    $scope.createTask = function () {
+      data = $scope.task;
+      $http.post("http://107.170.31.184:8080/api/tasks", data).success(function (response) {
+        $scope.tasks.push({"Name": response.Name, "Description": response.Description});
+        $scope.task = {};
+      });
+    };
   });
 })();

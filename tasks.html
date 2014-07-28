@@ -6,13 +6,25 @@
   <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="TasksController" ng-init="getTasks()">
-<table>
-  <th>Task Name</th>
-  <th>Task Description</th>
-  <tr ng-class="trClass({{$index}})" ng-repeat="task in tasks">
-    <td>{{task.Name}}</td>
-    <td>{{task.Description}}</td>
-  </tr>
-</table>
+<div id="right_container">
+  <h2>Create a Task</h2>
+
+  <form ng-submit="createTask()">
+    <input ng-model="task.Name" type="text" placeholder="name">
+    <input ng-model="task.Description" type="text" placeholder="description">
+    <button type="submit">Create Task</button>
+  </form>
+</div>
+<div id="left_container">
+  <h2>All Tasks</h2>
+  <table>
+    <th>Name</th>
+    <th>Description</th>
+    <tr ng-class="trClass({{$index}})" ng-repeat="task in tasks">
+      <td ng-model="task.Name">{{task.Name}}</td>
+      <td ng-model="task.Description">{{task.Description}}</td>
+    </tr>
+  </table>
+</div>
 </body>
 </html>
